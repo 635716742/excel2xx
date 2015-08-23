@@ -5,7 +5,7 @@ from zipfile import ZipFile
 
 
 if __name__ == '__main__':
-    zipName = 'excel2xx'
+    zipName = 'excel2sth'
     zipFile = zipName + '.zip'
     if(os.path.exists(zipFile)):
         os.remove(zipFile)

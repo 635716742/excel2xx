@@ -22,7 +22,7 @@ from docopt import docopt
 __author__ = 'cupen'
 __email__ = 'cupen@foxmail.com'
 
-from excel2xx import Excel
+from excel2sth import Excel
 
 def main(args):
     if args['--help']:

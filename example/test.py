@@ -1,6 +1,58 @@
 __author__ = 'cupen'
 
-from excel2xx import Excel, write_file
+
+def _(s):
+    """
+    >>> _("1+2")
+    3
+    >>> _("1+2+3")
+    6
+    >>> _("1+2+3-5")
+    1
+    >>> _("1+2+3-5-10")
+    -9
+
+    :param s:
+    :return:
+    """
+    status = 0 # 0-start 1-digit1 2-digit1_end 3-digit2 4-digit2_end
+    sum = ""
+    num = ""
+    flag = ''
+    for c in s:
+        if c.isdigit():
+            if status == 0 or status == 1:
+                sum += c
+                status = 1
+            elif status == 2 or status == 3:
+                num += c
+                status = 3
+        else:
+            if status == 1:
+                sum = int(sum)
+                status = 2
+                flag = c
+
+            elif status == 3:
+                num = int(num)
+                # print(sum,flag,num)
+                if flag == '-':
+                    sum -= num
+                elif flag == '+':
+                    sum += num
+                flag = c
+                num = ''
+                status = 2
+    if status == 3:
+        if flag == '-':
+            sum -= int(num)
+        elif flag == '+':
+            sum += int(num)
+
+    return sum
+
+
+from excel2sth import Excel, write_file
 
 excelFile = 'test.xls'
 excel = Excel(excelFile)
