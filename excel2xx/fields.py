@@ -166,7 +166,7 @@ class ObjectArray(Object):
 class ItemExpr(Field):
     NO_ID = set()
     NO_ID_PATTERN = {
-        "coin": re.compile("coin-(?P<count__int>\d+)(?P<unit>[a-zA-Z_]*)")
+        # "coin": re.compile("coin-(?P<count__int>\d+)(?P<unit>[a-zA-Z_]*)")
     }
     UNITS = {}
 
